@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,5 +24,5 @@ jobs:
       - name: Install project
         run: poetry install --no-interaction
 
-      - name: Lint
-        run: poetry run poe lint
+      - name: Test
+        run: poetry run poe test
